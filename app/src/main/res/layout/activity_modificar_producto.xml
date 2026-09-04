@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModificarProductoActivity">
+
+    <com.itsp.android.innovacion2016.CameraSourcePreview
+        android:id="@+id/cameraSourcePreviewUpdate"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <!-- el ratio es 27 : 35 -->
+
+        <com.itsp.android.innovacion2016.GraphicOverlay
+            android:id="@+id/barcodeGraphicOverlayUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.itsp.android.innovacion2016.CameraSourcePreview>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/auto_focus"
+                android:id="@+id/compAutoFocusUpdate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:gravity="end">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/use_flash"
+                android:id="@+id/compUseFlashUpdate" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding"
+        android:layout_marginBottom="5dp">
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:hint="Nombre del producto"
+                android:id="@+id/editProductoUpdate"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio:"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Precio"
+                android:id="@+id/editPrecioUpdate"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Código:"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:hint="Código de barras"
+                android:id="@+id/editBarcodeUpdate"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="P.  Reorden:"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Punto de reorden"
+                android:id="@+id/editReordenUpdate"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stock:"/>
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Stock"
+                android:id="@+id/editStockUpdate"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="@dimen/padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView18"
+            android:text="Tipo de medida: " />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/modificar_medida"
+            android:spinnerMode="dialog" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/padding"
+        android:paddingLeft="@dimen/padding">
+
+        <Button
+            android:layout_span="2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Modificar"
+            android:id="@+id/btnModificarProducto"
+            android:background="@color/colorPrimary"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+</LinearLayout>

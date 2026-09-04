@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".ProductCaptureActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/menus"
+        tools:ignore="UnknownIdInLayout,UselessParent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <com.itsp.android.innovacion2016.CameraSourcePreview
+                    android:id="@+id/cameraSourcePreview"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+                    <!-- el ratio es 27 : 35 -->
+
+                    <com.itsp.android.innovacion2016.GraphicOverlay
+                        android:id="@+id/barcodeGraphicOverlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </com.itsp.android.innovacion2016.CameraSourcePreview>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    tools:ignore="DisableBaselineAlignment">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <Switch
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/auto_focus"
+                            android:id="@+id/compAutoFocus" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="end"
+                        android:layout_weight="1">
+
+                        <Switch
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/use_flash"
+                            android:id="@+id/compUseFlash" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/padding"
+                    android:layout_marginBottom="10dp"
+                    tools:ignore="RtlHardcoded,RtlSymmetry">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nombre:"
+                                android:focusable="true"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:hint="Nombre del producto"
+                                android:id="@+id/editProducto"
+                                android:elegantTextHeight="false"
+                                android:inputType="textPersonName"
+                                tools:ignore="HardcodedText,UnusedAttribute" />
+                        </TableRow>
+                        <TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Precio:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:hint="Precio"
+                                android:id="@+id/editPrecio"
+                                tools:ignore="HardcodedText" />
+                        </TableRow>
+                        <TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Código:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:hint="Código de barras"
+                                android:id="@+id/editBarcode"
+                                android:inputType="text"
+                                tools:ignore="HardcodedText" />
+                        </TableRow>
+                        <TableRow>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="P.  Reorden:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:hint="Punto de reorden"
+                                android:id="@+id/editReorden"
+                                android:inputType="numberDecimal"
+                                tools:ignore="HardcodedText" />
+                        </TableRow>
+
+                    </TableLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/padding"
+                    android:layout_marginBottom="15dp"
+                    tools:ignore="RtlHardcoded,RtlSymmetry">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Tipo de medida:"
+                        android:gravity="fill_vertical"
+                        tools:ignore="HardcodedText" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/spinnerUnidad"
+                        android:touchscreenBlocksFocus="true"
+                        android:transitionGroup="true"
+                        android:spinnerMode="dialog"
+                        android:layout_weight=".5"
+                        tools:ignore="UnusedAttribute" />
+
+                    <ImageButton
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_control_point_black_24dp"
+                        android:id="@+id/imgb_agregar"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        tools:ignore="VectorDrawableCompat"
+                        android:contentDescription="@string/app_name" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Insertar"
+                    android:id="@+id/btnInsertarProducto"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#ffffff"
+                    tools:ignore="HardcodedText"
+                    android:layout_marginLeft="@dimen/padding"
+                    android:layout_marginRight="@dimen/padding" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

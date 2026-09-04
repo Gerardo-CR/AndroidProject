@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:textSize="20sp"
+        android:text="@string/str_codigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/dialogTextCodigo"
+        android:hint="@string/str_codigo_del_producto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:maxLength="40" />
+    <TextView
+        android:textSize="20sp"
+        android:text="@string/str_cantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold" />
+    <EditText
+        android:inputType="numberDecimal"
+        android:id="@+id/dialogTextCantidad"
+        android:hint="@string/str_cantidad_del_producto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

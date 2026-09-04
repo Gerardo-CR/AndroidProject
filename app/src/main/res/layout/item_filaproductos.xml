@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3sp">
+
+    <TextView
+        android:text="@string/action_add_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_producto"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="3sp">
+
+        <TextView
+            android:text="@string/precio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_precio"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:text="@string/str_cantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_cantidad"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:text="@string/subtotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_subtotal"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <SurfaceView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:id="@+id/surfaceView2"
+        android:background="@color/colorPrimary"
+        tools:ignore="SmallSp" />
+</LinearLayout>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_vertical_margin">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarStyle="outsideInset"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/principal">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/fechas">
+
+                <TextView
+                    android:text="@string/fecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="HardcodedText,RtlHardcoded"
+                    android:textSize="18sp"
+                    android:layout_marginRight="5sp" />
+
+                <TextView
+                    android:text="@string/fecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtfecha"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_plazo_fecha2"
+                    android:textSize="18sp"
+                    android:layout_marginRight="5sp"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtfechaplazo"
+                    android:layout_weight="1"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtdias"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <TextView
+                android:text="@string/str_nombre_del_cliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="@string/str_cliente2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtcliente"
+                android:textStyle="normal|bold"
+                android:textAllCaps="true"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="DisableBaselineAlignment">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:ignore="InefficientWeight">
+
+                    <TextView
+                        android:text="@string/str_direccion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5sp"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:text="@string/str_direccion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtdireccion"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <ImageButton
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_call_black_24dp"
+                        android:id="@+id/btnllamar"
+                        android:contentDescription="@string/str_telefono"
+                        android:layout_width="wrap_content"
+                        tools:ignore="RtlHardcoded,VectorDrawableCompat" />
+
+                    <ImageButton
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_email_black_24dp"
+                        android:id="@+id/btnenviaremail"
+                        android:contentDescription="@string/action_send_email_sale"
+                        android:layout_width="wrap_content"
+                        tools:ignore="RtlHardcoded,VectorDrawableCompat" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <SurfaceView
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:id="@+id/surfaceView3"
+                android:background="@color/colorPrimary"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:text="@string/str_productos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lista_productos">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="@string/precio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textStyle="normal|bold"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <SurfaceView
+                        android:layout_height="match_parent"
+                        android:layout_width="1dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:text="@string/cantidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="center"
+                        android:textStyle="normal|bold"
+                        android:textSize="18sp" />
+
+                    <SurfaceView
+                        android:layout_height="match_parent"
+                        android:layout_width="1dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:text="@string/subtotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="center"
+                        android:textStyle="normal|bold"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <SurfaceView
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    tools:ignore="SmallSp"
+                    android:background="@color/colorPrimary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10sp"
+                tools:ignore="DisableBaselineAlignment"
+                android:id="@+id/panel_pagos">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:text="@string/str_pagov2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:ignore="HardcodedText"
+                        android:textStyle="normal|bold"
+                        android:id="@+id/txtpago"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="@string/str_deuda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:text="$3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtdeuda"
+                        tools:ignore="HardcodedText"
+                        android:textStyle="normal|bold"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="@string/total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:text="@string/total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txttotal"
+                        android:textStyle="normal|bold"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5sp">
+
+                <Button
+                    android:text="@string/str_agregar_pago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnagregar"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    tools:ignore="ButtonStyle"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/color1"
+                    android:layout_margin="5sp" />
+
+                <Button
+                    android:text="@string/str_finalizar_venta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnfinalizar"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    tools:ignore="ButtonStyle"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/color1"
+                    android:layout_margin="5sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

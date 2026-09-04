@@ -1,0 +1,173 @@
+<resources>
+    <string name="app_name">VICIA</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!--Action Menu Items-->
+    <string name="action_settings">Settings</string>
+    <string name="action_add_product">Add Product</string>
+    <string name="action_send_email_sale">Send Email</string>
+
+    <!--Navigation Drawer-->
+    <string name="nav_camera">Import</string>
+    <string name="nav_gallery">Gallery</string>
+    <string name="nav_slideshow">Slideshow</string>
+    <string name="nav_manage">Tools</string>
+    <string name="nav_share">Share</string>
+    <string name="nav_send">Send</string>
+    <string name="nav_capture">Groceries input</string>
+    <string name="nav_selling">Sales point</string>
+    <string name="nav_groceries">Groceries</string>
+    <string name="nav_sales">Sales</string>
+    <string name="nav_statistics">Statistics</string>
+
+    <!--Barcode capture strings-->
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="title_activity_main">Barcode Reader Sample</string>
+    <string name="barcode_header">Click &quot;Read Barcode&quot; to read a barcode</string>
+    <string name="read_barcode">Read Barcode</string>
+    <string name="auto_focus">Auto Focus</string>
+    <string name="use_flash">Use Flash</string>
+    <string name="barcode_success">Barcode read successfully</string>
+    <string name="barcode_failure">No barcode captured</string>
+    <string name="barcode_error">"Error reading barcode: %1$s"</string>
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="nav_settings">Settings</string>
+    <string name="exit">you what to get out of the application?</string>
+    <string name="close_negative">No</string>
+    <string name="close_positive">Yes</string>
+    <string name="name">name</string>
+    <string name="surnames">Surnames</string>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="start">START</string>
+    <string name="olvidar">Forgot your password?</string>
+    <string name="update_products">Update product</string>
+    <string name="point_sale">Point of sale</string>
+    <string name="pref_header_data_sync"></string>
+    <string name="product">Product</string>
+    <string name="price">Price</string>
+    <string name="amount">Amount</string>
+    <string name="pref_default_display_name">Prefens defauld</string>
+    <string name="inventory">Inventory</string>
+    <string name="new_product">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="nav_facturacion">Facturacion</string>
+    <string name="fecha">Date:</string>
+    <string name="precio">Precio</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="total">Total:</string>
+    <string name="cantidad">Quantity</string>
+    <string name="valor_del_inventario">Valor del inventario:</string>
+    <string name="string_aceptar" />
+    <string name="str_pago">Pago</string>
+    <string name="str_cliente">Cliente:</string>
+    <string name="str_contado">Contado</string>
+    <string name="str_credito">Crédito</string>
+    <string name="str_nombre">Nombre</string>
+    <string name="str_plazo_dias">Plazo (fecha)</string>
+    <string name="str_tipo_de_venta">Tipo de venta:</string>
+    <string name="str_codigo">Código</string>
+    <string name="str_cantidad_del_producto">Cantidad del producto</string>
+    <string name="str_cantidad">Cantidad</string>
+    <string name="str_codigo_del_producto">Código del producto</string>
+    <string name="aceptar">Accept</string>
+    <string name="cobrar">Cash</string>
+    <string name="str_editar_cliente">Editar cliente</string>
+    <string name="str_ver_cliente">Ver cliente</string>
+    <string name="str_opciones">Options</string>
+    <string name="str_direccion">Dirección:</string>
+    <string name="str_correo">Correo</string>
+    <string name="str_telefono">Teléfono</string>
+    <string name="str_cliente2">Cliente</string>
+    <string name="str_apellidos">Apellidos</string>
+    <string name="str_salir">¿Desea salir?</string>
+    <string name="appwidget_text" translatable="false">EXAMPLE</string>
+    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="str_agregar_medida">Agregar medida</string>
+    <string name="str_medida">Medida</string>
+    <string name="str_agregar_abreviatura">Agregar abreviatura</string>
+    <string name="str_abreviatura">Abreviatura</string>
+    <string name="str_nombre_del_cliente">Nombre del Cliente</string>
+    <string name="str_deuda">Deuda:</string>
+    <string name="str_pagov2">Pago:</string>
+    <string name="str_productos">Productos</string>
+    <string name="str_venta">Venta</string>
+    <string name="str_agregar_pago">Agregar pago</string>
+    <string name="str_eliminar_venta">Eliminar venta</string>
+    <string name="str_finalizar_venta">Finalizar venta</string>
+    <string name="str_nombre_del_producto">Nombre del producto</string>
+    <string name="str_numerodelote">Numero:</string>
+    <string name="str_cantidadp">Cantidad:</string>
+    <string name="str_fecha_de_caducidad">Fecha de caducidad</string>
+    <string name="str_agregar">Agregar</string>
+    <string name="str_detalles">DETALLES</string>
+    <string name="str_plazo_fecha2">Plazo (fecha):</string>
+    <string name="str_diasrestantes">Dias Restantes:</string>
+    <string name="str_agregueunpago">Agregue un pago valido</string>
+    <string name="str_pagonomayor">El pago no puede ser mayor a la deuda</string>
+    <string name="str_pagoactulizado">Pago actualizado</string>
+    <string name="str_erroractulizarpago">¡Error al actualizar el pago!</string>
+    <string name="str_ventaactualizada">Venta actualizada</string>
+    <string name="str_erroractulizarventa">¡Error al actualizar la venta!</string>
+    <string name="str_confirmarventafin">Esta opción actualizara los datos de la venta, a venta pagada. ¿Desea continuar?</string>
+    <string name="str_eliminar_pago">Eliminar pago</string>
+    <string name="str_pagonomayor2">El pago no puede ser mayor al pago actual</string>
+</resources>

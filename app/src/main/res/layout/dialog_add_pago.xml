@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16sp">
+
+    <TextView
+        android:text="@string/str_agregar_pago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:id="@+id/tv_labelpago" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/edt_pago"
+        android:hint="@string/str_pago" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10sp"
+        tools:ignore="SmallSp" />
+
+    <Button
+        android:text="@string/aceptar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/color1"
+        android:id="@+id/btnaceptarpago"
+        android:textAllCaps="false" />
+
+</LinearLayout>

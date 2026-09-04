@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_detalle_cliente"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.itsp.android.innovacion2016.DetalleClienteActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:text="@string/str_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView19" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_nombrecliente"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            tools:ignore="HardcodedText" />
+
+        <SurfaceView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:id="@+id/surfaceView"
+            tools:ignore="SmallSp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:text="@string/str_direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView22"
+            android:layout_marginTop="5sp" />
+
+        <TextView
+            android:text="@string/str_editar_cliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_direccion" />
+        <SurfaceView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            tools:ignore="DuplicateIds,SmallSp"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5sp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="@string/str_telefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView28"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_telefono"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_call_black_24dp"
+                android:id="@+id/ibtn_llamar"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:layout_width="150sp"
+                tools:ignore="VectorDrawableCompat" />
+
+        </LinearLayout>
+        <SurfaceView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            tools:ignore="DuplicateIds,SmallSp"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5sp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="@string/str_correo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_email"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_email_black_24dp"
+                android:id="@+id/ibtn_email"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:layout_width="150sp"
+                tools:ignore="VectorDrawableCompat" />
+
+        </LinearLayout>
+        <SurfaceView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            tools:ignore="DuplicateIds,SmallSp"
+            android:background="@color/colorPrimary" />
+
+    </LinearLayout>
+</RelativeLayout>

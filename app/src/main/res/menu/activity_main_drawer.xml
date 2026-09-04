@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+    <!-- <group android:checkableBehavior="single"> -->
+        <item
+            android:id="@+id/nav_selling"
+            android:icon="@drawable/ic_party_mode_black_24dp"
+            android:title="@string/nav_selling" />
+        <item
+            android:id="@+id/nav_groceries"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/nav_groceries" />
+        <item
+            android:id="@+id/nav_capture"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/nav_capture" />
+        <item
+            android:id="@+id/nav_sales"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/nav_sales" />
+        <item
+
+            android:id="@+id/nav_caducidad"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="Caducidad" />
+
+
+        <item android:title="Clientes"
+            android:id="@+id/nav_clientes"
+            android:icon="@drawable/ic_cliente" />
+        <item
+
+            android:id="@+id/nav_statistics"
+            android:title="@string/nav_statistics"
+            android:icon="@drawable/ic_sync_black_24dp"
+            />
+        <item
+            android:id="@+id/nav_fact"
+            android:icon="@drawable/ic_cloud_black_24dp"
+            android:title="@string/nav_facturacion" />
+
+        <item
+            android:id="@+id/nav_fcm"
+            android:icon="@drawable/ic_menu_send"
+            android:title="FCM" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nav_settings" />
+
+
+    </group>
+
+
+</menu>

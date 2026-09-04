@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:title="Correo Origen"
+        android:key="mail_from"
+        android:summary="Remitente del correo"
+        android:defaultValue="envia.correos@proyectositsp.thats.im"
+        android:inputType="textEmailAddress" />
+    <EditTextPreference android:title="Contraseña"
+        android:key="password_from"
+        android:summary="Contraseña del correo remitente"
+        android:defaultValue="envia.correos"
+        android:inputType="textPassword" />
+    <EditTextPreference android:title="Correo Destino"
+        android:key="mail_to"
+        android:summary="Correo destino"
+        android:defaultValue="gerardo_16castillo@hotmail.com"
+        android:inputType="textEmailAddress" />
+    <EditTextPreference android:title="Servidor"
+        android:key="webserver"
+        android:summary="Direccion del servidor"
+        android:defaultValue="www.proyectositsp.thats.im"/>
+    <EditTextPreference android:title="Tienda"
+        android:key="storeName"
+        android:summary="Nombre del negocio"
+        android:defaultValue="ITSP"
+        android:inputType="textPersonName" />
+</PreferenceScreen>

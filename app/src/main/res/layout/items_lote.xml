@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numero"
+            android:id="@+id/textViewitem_numero"
+            android:textSize="20dp"
+            android:layout_weight="3"
+            android:gravity="start"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de entrada"
+            android:id="@+id/textViewitems_fecha_entrada"
+            android:textSize="20dp"
+            android:layout_weight="4"
+            android:gravity="start"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad"
+            android:id="@+id/textViewcantidad_lote"
+            android:textSize="20dp"
+            android:typeface="normal"
+            android:singleLine="false"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewidlote"
+            android:visibility="gone"
+            android:text="id" />
+    </LinearLayout>
+</LinearLayout>

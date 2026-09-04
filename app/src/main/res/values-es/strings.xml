@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">VICIA</string>
+    <string name="navigation_drawer_open">Abrir navigation drawer</string>
+    <string name="navigation_drawer_close">Cerrar navigation drawer</string>
+
+    <!--Action Menu Items-->
+    <string name="action_settings">Ajustes</string>
+    <string name="action_add_product">Añadir Producto</string>
+    <string name="action_send_email_sale">Enviar Correo</string>
+    <!--Textos-->
+    <string name="exit">¿Quieres salir de la aplicación?</string>
+    <string name="close_positive">Si</string>
+    <string name="close_negative">No</string>
+
+
+    <!--Navigation Drawer-->
+    <string name="nav_camera">Importar</string>
+    <string name="nav_gallery">Galeria</string>
+    <string name="nav_slideshow">Presentacion</string>
+    <string name="nav_manage">Herramientas</string>
+    <string name="nav_share">Compartir</string>
+    <string name="nav_send">Enviar</string>
+    <string name="nav_capture">Captura de Productos</string>
+    <string name="nav_selling">Punto de venta</string>
+    <string name="nav_groceries">Productos</string>
+    <string name="nav_sales">Ventas</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="nav_statistics">Estadísticas</string>
+
+    <!--Barcode capture strings-->
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Se necesita acceso a la cámara para la detección</string>
+    <string name="no_camera_permission">No se puede ejecutar esta aplicación porque no tiene acceso a la cámara.  La aplicación se cerrará.</string>
+    <string name="low_storage_error">Las dependencias de deteccion de Rostros no pueden ser descargadas debido al poco espacio de almacenamiento</string>
+    <string name="title_activity_main">Ejemplo de lector de codigos de barras</string>
+    <string name="barcode_header">Presione &quot;Leer codigo de barras&quot; para leer un codigo</string>
+    <string name="read_barcode">Leer codigo de barras</string>
+    <string name="auto_focus">Auto Focus</string>
+    <string name="use_flash">Usar Flash</string>
+    <string name="barcode_success">Codigo de barras leido con exito</string>
+    <string name="barcode_failure">No se capturo ningun codigo de barras</string>
+    <string name="barcode_error">"Error al leer codigo de barras: %1$s"</string>
+    <string name="name">Nombre</string>
+    <string name="surnames">Apellidos</string>
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="title_activity_settings">Ajustes</string>
+    <string name="start">INICIAR</string>
+    <string name="olvidar">¿Olvidaste tu contraseña?</string>
+    <string name="update_products">Modificar producto</string>
+    <string name="point_sale">Punto de venta</string>
+    <string name="product">Producto</string>
+    <string name="price">Precio</string>
+    <string name="amount">Cantidad</string>
+    <string name="inventory">Inventario</string>
+    <string name="new_product">Capturar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="nav_facturacion">Facturar</string>
+    <string name="fecha">Fecha:</string>
+    <string name="precio">Precio</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="total">Total:</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="cobrar">Cobrar</string>
+    <string name="str_opciones">Opciones</string>
+    <string name="str_eliminar_venta">Eliminar venta</string>
+    <string name="str_nombre_del_producto">Nombre del producto</string>
+    <string name="str_numerodelote">Numero:</string>
+    <string name="str_cantidadp">Cantidad:</string>
+    <string name="str_fecha_de_caducidad">Fecha de caducidad</string>
+    <string name="str_agregar">Agregar</string>
+    <string name="str_detalles">DETALLES</string>
+    <string name="str_plazo_fecha2">Plazo (fecha):</string>
+    <string name="str_diasrestantes">Días Restantes:</string>
+    <string name="str_agregueunpago">Agregue un pago valido</string>
+    <string name="str_pagonomayor">El pago no puede ser mayor a la deuda, ni igual a cero</string>
+    <string name="str_pagoactulizado">Pago actualizado</string>
+    <string name="str_erroractulizarpago">¡Error al actualizar el pago!</string>
+    <string name="str_ventaactualizada">Venta actualizada</string>
+    <string name="str_erroractulizarventa">¡Error al actualizar la venta!</string>
+    <string name="str_confirmarventafin">Esta opción actualizara los datos de la venta, a venta pagada. ¿Desea continuar?</string>
+    <string name="str_eliminar_pago">Eliminar pago</string>
+    <string name="str_deuda">Deuda:</string>
+</resources>

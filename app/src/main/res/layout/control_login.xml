@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorlogin">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp">
+
+        <EditText
+            android:id="@+id/TextUsuario"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:textSize="@dimen/texto_password"
+            android:hint="@string/user"
+            android:textColorHint="#000"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000"
+            android:textColorLink="#ffffff"
+            android:inputType="text"/>
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/TextPassword"
+            android:hint="@string/password"
+            android:textSize="@dimen/texto_password"
+            android:textColor="#000"
+            android:textIsSelectable="false"
+            android:textColorHint="#000"
+            android:textColorLink="#ffffff" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAceptar"
+                android:text="@string/start"
+                android:textSize="@dimen/texto_size"
+                android:background="#024860"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/Labelver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dip"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/olvidar"
+            android:id="@+id/textView17"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/texto_size" />
+    </LinearLayout>
+</LinearLayout>

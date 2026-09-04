@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/fab_margin"
+    android:paddingLeft="@dimen/fab_margin"
+    android:paddingRight="@dimen/fab_margin"
+    android:paddingTop="@dimen/fab_margin">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <EditText
+                android:id="@+id/txtpago"
+                android:hint="@string/str_pago"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tipoventa"
+                android:checkedButton="@+id/radiocontado"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:text="@string/str_contado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiocontado"
+                    android:checked="false"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:text="@string/str_credito"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiocredito"
+                    android:layout_weight="1" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contenedorcliente"
+                android:layout_marginTop="5sp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ac_cliente"
+                        android:maxLength="100"
+                        android:inputType="textPersonName"
+                        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+                        android:dropDownHeight="wrap_content"
+                        android:hint="@string/str_cliente"
+                        android:layout_weight="1"
+                        tools:ignore="InefficientWeight"
+                        android:textColor="@android:color/black" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_cancel_cliente"
+                        android:id="@+id/btn_cancelar"
+                        android:layout_weight=".25"
+                        android:contentDescription="@string/app_name"
+                        tools:ignore="VectorDrawableCompat" />
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:id="@+id/txtplazo"
+                    android:hint="@string/str_plazo_dias"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:contextClickable="false"
+                    tools:ignore="UnusedAttribute"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp">
+
+                <TextView
+                    android:text="@string/total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txttotal"
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="10sp"
+                    tools:ignore="RtlHardcoded" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp">
+
+                <Button
+                    android:text="@string/aceptar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_guardarcliente"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/color1" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
