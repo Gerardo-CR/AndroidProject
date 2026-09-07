@@ -84,10 +84,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_selling) {
@@ -102,24 +100,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_sales) {
             Intent intent = new Intent(MainActivity.this, ListadoVentasActivity.class);
             startActivity(intent);
-        } else if (id==R.id.nav_statistics){
-            Intent intent=new Intent(MainActivity.this,Estadisticas.class);
+        } else if (id == R.id.nav_statistics) {
+            Intent intent = new Intent(MainActivity.this, Estadisticas.class);
             startActivity(intent);
-        }
-        else if (id == R.id.nav_fcm) {
+        } else if (id == R.id.nav_fcm) {
             Intent intent = new Intent(MainActivity.this, FCMActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_settings) {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
-        }else if(id==R.id.nav_caducidad){
+        } else if (id == R.id.nav_caducidad) {
             Intent intent = new Intent(MainActivity.this, Lista_caducidad.class);
             startActivity(intent);
-        }else if(id==R.id.nav_fact){
-            Intent intent= new Intent(MainActivity.this,NavegadorActivity.class);
+        } else if (id == R.id.nav_fact) {
+            Intent intent = new Intent(MainActivity.this, NavegadorActivity.class);
             intent.putExtra("url", "https://www.siat.sat.gob.mx/PTSC/");
             startActivity(intent);
-        }else if (id == R.id.nav_clientes){
+        } else if (id == R.id.nav_clientes) {
             Intent intent = new Intent(MainActivity.this, ClientesActivity.class);
             startActivity(intent);
         }
