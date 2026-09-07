@@ -1,20 +1,27 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '27.0.3'
+    namespace 'com.gcr.android.inventorytest'
+    compileSdkVersion 35
 
     defaultConfig {
-        applicationId "com.itsp.android.innovacion2016"
-        minSdkVersion 16
-        targetSdkVersion 23
+        applicationId "com.gcr.android.inventorytest"
+        minSdkVersion 21
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packaging {
+        resources {
+            excludes += '/META-INF/NOTICE.md'
+            excludes += '/META-INF/LICENSE.md'
         }
     }
 }
@@ -24,19 +31,18 @@ android {
 
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    //compile 'com.facebook.stetho:stetho:1.3.1'
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
-    //compile 'com.google.android.gms:play-services:9.6.1'
-    compile 'com.google.android.gms:play-services-vision:9.6.1'
-    compile 'com.google.android.gms:play-services-gcm:9.6.1'
-    //compile 'com.android.support:support-v4:23.3.0'
-    compile 'com.sun.mail:android-mail:1.5.5'
-    compile 'com.sun.mail:android-activation:1.5.5'
-    compile 'com.google.firebase:firebase-messaging:9.6.1'
-    compile 'com.android.volley:volley:1.0.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.annotation:annotation:1.9.1'
+    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.sun.mail:android-mail:1.6.7'
+    implementation 'com.sun.mail:android-activation:1.6.7'
+    implementation 'com.google.firebase:firebase-messaging:24.0.0'
+    implementation 'com.android.volley:volley:1.2.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

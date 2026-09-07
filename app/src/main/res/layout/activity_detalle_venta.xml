@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="5dp"
     android:orientation="vertical"
-    tools:context="com.itsp.android.innovacion2016.DetalleVentaActivity">
+    tools:context="com.gcr.android.inventorytest.DetalleVentaActivity">
 
     <LinearLayout
         android:orientation="horizontal"

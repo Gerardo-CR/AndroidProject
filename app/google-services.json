@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:55933701776:android:f324f570a7032a97",
         "android_client_info": {
-          "package_name": "com.itsp.android.innovacion2016"
+          "package_name": "com.gcr.android.inventorytest"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "55933701776-5nqfn8fhag330b3tr9hl7ck07g2632sv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.itsp.android.innovacion2016",
+            "package_name": "com.gcr.android.inventorytest",
             "certificate_hash": "1A1D1E73D2FA182F2D03BE9EC46D9A1591BEE260"
           }
         },

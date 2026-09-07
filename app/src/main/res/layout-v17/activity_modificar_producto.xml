@@ -7,18 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".ModificarProductoActivity">
 
-    <com.itsp.android.innovacion2016.CameraSourcePreview
+    <com.gcr.android.inventorytest.CameraSourcePreview
         android:id="@+id/cameraSourcePreviewUpdate"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="200dp">
         <!-- el ratio es 27 : 35 -->
 
-        <com.itsp.android.innovacion2016.GraphicOverlay
+        <com.gcr.android.inventorytest.GraphicOverlay
             android:id="@+id/barcodeGraphicOverlayUpdate"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.itsp.android.innovacion2016.CameraSourcePreview>
+    </com.gcr.android.inventorytest.CameraSourcePreview>
 
     <LinearLayout
         android:orientation="horizontal"
