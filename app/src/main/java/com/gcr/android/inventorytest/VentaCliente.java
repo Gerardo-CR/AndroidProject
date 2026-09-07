@@ -18,6 +18,6 @@ public class VentaCliente extends Venta {
     }
 
     public int getIdCliente() {
-        return cliente.getId();
+        return cliente.id;
     }
 }

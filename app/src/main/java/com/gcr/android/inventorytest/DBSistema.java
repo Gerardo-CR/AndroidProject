@@ -385,7 +385,7 @@ return lote;
         int id_cliente = 0;
         //preguntar el tipo de venta, si es a contado agregar el cliente a la base da datos
         if (tipo_venta == VENTA_CREDITO) {
-            if (cliente.getId() == 0) {
+            if (cliente.id == 0) {
                 long r = insertCliente(cliente);
                 if (r != -1) {
                     Cursor cursor = db.rawQuery("SELECT last_insert_rowid() from " + CLIENTES_TABLE_NAME, null);
@@ -394,7 +394,7 @@ return lote;
                     cursor.close();
                 }
             } else {
-                id_cliente = cliente.getId();
+                id_cliente = cliente.id;
             }
         }
 
