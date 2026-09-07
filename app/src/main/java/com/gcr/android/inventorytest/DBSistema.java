@@ -43,15 +43,15 @@ public class DBSistema extends SQLiteOpenHelper {
             "idcliente integer primary key autoincrement, " +
             "nombre varchar(50) not null, " +
             "apellidos varchar(60) not null, " +
-            "telefono varchar(12) null, " +
-            "correo varchar(60) unique null, " +
-            "direccion varchar(200) null " +
+            "telefono varchar(12), " +
+            "correo varchar(60) unique, " +
+            "direccion varchar(200) " +
             ")";
 
     private static final String VENTAS_TABLE_NAME = "ventas";
     private static final String VENTAS_TABLE_CREATE = "create table " + VENTAS_TABLE_NAME +
             " (id integer primary key autoincrement, " +
-            "idcliente integer null default 0, " +
+            "idcliente integer default 0, " +
             "estatus integer not null default " + VENTA_CONTADO + ", " +
             "plazo date, " +
             "fecha date, " +
@@ -79,7 +79,7 @@ public class DBSistema extends SQLiteOpenHelper {
             "idproducto integer,"  +
             "cantidad real, "+
             "fentrada date, "+
-            "fcaducidad date null, "+
+            "fcaducidad date, "+
             "foreign key (idproducto) references "+ PRODUCTOS_TABLE_NAME + "(id))";
 
 
