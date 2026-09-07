@@ -60,13 +60,7 @@ public class ControlLogin extends LinearLayout {
 
     private void asignarEventos()
     {
-        btnLogin.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                listener.onLogin(txtUsuario.getText().toString(), txtPassword.getText().toString());
-            }
-        });
+        btnLogin.setOnClickListener(v -> listener.onLogin(txtUsuario.getText().toString(), txtPassword.getText().toString()));
     }
 
     public interface OnLoginListener {

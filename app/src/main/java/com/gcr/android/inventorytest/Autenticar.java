@@ -25,21 +25,18 @@ public class Autenticar extends AppCompatActivity {
 
         ctlLogin = (ControlLogin) findViewById(R.id.CtlLogin);
 
-        ctlLogin.setOnLoginListener(new ControlLogin.OnLoginListener() {
-            @Override
-            public void onLogin(String usuario, String password) {
-                //Validamos el usuario y la contraseña
+        ctlLogin.setOnLoginListener((usuario, password) -> {
+            //Validamos el usuario y la contraseña
 
-                if (usuario.equals("root") && password.equals("root")) {
-                    Intent intent = new Intent(Autenticar.this, MainActivity.class);
-                    startActivity(intent);
+            if (usuario.equals("root") && password.equals("root")) {
+                Intent intent = new Intent(Autenticar.this, MainActivity.class);
+                startActivity(intent);
 
-                    ctlLogin.setTxtPassword("");
-                    ctlLogin.setTxtUsuario("");
-                    Autenticar.this.finish();
-                } else {
-                    ctlLogin.setMensaje("Vuelva a intentarlo.");
-                }
+                ctlLogin.setTxtPassword("");
+                ctlLogin.setTxtUsuario("");
+                Autenticar.this.finish();
+            } else {
+                ctlLogin.setMensaje("Vuelva a intentarlo.");
             }
         });
     }
