@@ -1,4 +1,4 @@
-# AndroidProject
+# Inventory Test
 Prototipo de inventario usando android
 
 
