@@ -16,7 +16,7 @@ public class Registro extends AppCompatActivity {
 
         aceptar = findViewById(R.id.registrar_button);
         aceptar.setOnClickListener(v -> {
-            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isFirstRun", false).commit();
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isFirstRun", false).apply();
             startActivity(new Intent(Registro.this, Autenticar.class));
             Registro.this.finish();
         });
