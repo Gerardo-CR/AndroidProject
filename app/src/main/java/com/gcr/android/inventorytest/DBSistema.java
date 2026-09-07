@@ -189,12 +189,20 @@ public class DBSistema extends SQLiteOpenHelper {
 
         Cursor cursor=db.rawQuery("select * from "+LOTE_PRODUCTOS_TABLE_NAME+" where idproducto="+id,null);
         while(cursor.moveToNext()){
-            Lote aux= new Lote(cursor.getInt(cursor.getColumnIndex("id_lote"))
-            ,cursor.getInt(cursor.getColumnIndex("numero"))
-            ,cursor.getString(cursor.getColumnIndex("fcaducidad"))
-            ,cursor.getString(cursor.getColumnIndex("fentrada"))
-            ,cursor.getInt(cursor.getColumnIndex("cantidad")));
-            lote.add(aux);
+            int idxId = cursor.getColumnIndex("id_lote");
+            int idxNum = cursor.getColumnIndex("numero");
+            int idxCad = cursor.getColumnIndex("fcaducidad");
+            int idxEnt = cursor.getColumnIndex("fentrada");
+            int idxCant = cursor.getColumnIndex("cantidad");
+
+            if (idxId != -1 && idxNum != -1 && idxCad != -1 && idxEnt != -1 && idxCant != -1) {
+                Lote aux = new Lote(cursor.getInt(idxId),
+                        cursor.getInt(idxNum),
+                        cursor.getString(idxCad),
+                        cursor.getString(idxEnt),
+                        cursor.getInt(idxCant));
+                lote.add(aux);
+            }
         }
         cursor.close();
         db.close();
@@ -227,7 +235,10 @@ public class DBSistema extends SQLiteOpenHelper {
             numero = 0;
         }else{
             if (cursor.moveToNext()){
-                numero = cursor.getInt(cursor.getColumnIndex("numero"));
+                int idxNum = cursor.getColumnIndex("numero");
+                if (idxNum != -1) {
+                    numero = cursor.getInt(idxNum);
+                }
             }
         }
         cursor.close();
@@ -238,14 +249,25 @@ public ArrayList<Lote> Select_Lote_Caducidad(String caducidad) {
     ArrayList<Lote> lote = new ArrayList<>();
     Cursor cursor = db.rawQuery("select * from " + LOTE_PRODUCTOS_TABLE_NAME + " where fcaducidad=" + caducidad, null);
 while (cursor.moveToNext()) {
-    Lote aux = new Lote(cursor.getInt(cursor.getColumnIndex("id_lote"))
-            , cursor.getInt(cursor.getColumnIndex("numero"))
-            , cursor.getString(cursor.getColumnIndex("fcaducidad"))
-            , cursor.getString(cursor.getColumnIndex("fentrada"))
-            , cursor.getInt(cursor.getColumnIndex("cantidad")));
+    int idxId = cursor.getColumnIndex("id_lote");
+    int idxNum = cursor.getColumnIndex("numero");
+    int idxCad = cursor.getColumnIndex("fcaducidad");
+    int idxEnt = cursor.getColumnIndex("fentrada");
+    int idxCant = cursor.getColumnIndex("cantidad");
+    int idxProd = cursor.getColumnIndex("idproducto");
 
-    aux.setId_producto(cursor.getInt(cursor.getColumnIndex("idproducto")));
-    lote.add(aux);
+    if (idxId != -1 && idxNum != -1 && idxCad != -1 && idxEnt != -1 && idxCant != -1) {
+        Lote aux = new Lote(cursor.getInt(idxId),
+                cursor.getInt(idxNum),
+                cursor.getString(idxCad),
+                cursor.getString(idxEnt),
+                cursor.getInt(idxCant));
+
+        if (idxProd != -1) {
+            aux.setId_producto(cursor.getInt(idxProd));
+        }
+        lote.add(aux);
+    }
 }
     cursor.close();
     db.close();
@@ -290,15 +312,27 @@ return lote;
         Cursor cursor = db.rawQuery("select * from " + PRODUCTOS_TABLE_NAME + " where id=" + id, null);
         Producto producto=null;
         while (cursor.moveToNext()){
-            producto= new Producto(cursor.getString(cursor.getColumnIndex("nombre")),
-                    cursor.getString(cursor.getColumnIndex("barcode")),
-                    cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getDouble(cursor.getColumnIndex("precio")));
+            int idxNombre = cursor.getColumnIndex("nombre");
+            int idxBarcode = cursor.getColumnIndex("barcode");
+            int idxId = cursor.getColumnIndex("id");
+            int idxPrecio = cursor.getColumnIndex("precio");
+            int idxReorden = cursor.getColumnIndex("punto_reorden");
+            int idxStock = cursor.getColumnIndex("stock");
+            int idxMedida = cursor.getColumnIndex("idmedida");
 
-            producto.setReorden(cursor.getDouble(cursor.getColumnIndex("punto_reorden")));
-            producto.setStock(cursor.getDouble(cursor.getColumnIndex("stock")));
-            Medida medida = selectMedida(cursor.getInt(cursor.getColumnIndex("idmedida")));
-            producto.setMedida(medida);
+            if (idxNombre != -1 && idxBarcode != -1 && idxId != -1 && idxPrecio != -1) {
+                producto = new Producto(cursor.getString(idxNombre),
+                        cursor.getString(idxBarcode),
+                        cursor.getInt(idxId),
+                        cursor.getDouble(idxPrecio));
+
+                if (idxReorden != -1) producto.setReorden(cursor.getDouble(idxReorden));
+                if (idxStock != -1) producto.setStock(cursor.getDouble(idxStock));
+                if (idxMedida != -1) {
+                    Medida medida = selectMedida(cursor.getInt(idxMedida));
+                    producto.setMedida(medida);
+                }
+            }
         }
         cursor.close();
         db.close();
@@ -310,12 +344,21 @@ return lote;
         Cursor cursor = db.rawQuery("select * from " + PRODUCTOS_TABLE_NAME + " where barcode='" + barcode + "'", null);
         Producto producto = null;
         while (cursor.moveToNext()){
-            producto = new Producto(cursor.getString(cursor.getColumnIndex("nombre")),
-                    cursor.getString(cursor.getColumnIndex("barcode")),
-                    cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getDouble(cursor.getColumnIndex("precio")));
-            producto.setReorden(cursor.getDouble(cursor.getColumnIndex("punto_reorden")));
-            producto.setStock(cursor.getDouble(cursor.getColumnIndex("stock")));
+            int idxNombre = cursor.getColumnIndex("nombre");
+            int idxBarcode = cursor.getColumnIndex("barcode");
+            int idxId = cursor.getColumnIndex("id");
+            int idxPrecio = cursor.getColumnIndex("precio");
+            int idxReorden = cursor.getColumnIndex("punto_reorden");
+            int idxStock = cursor.getColumnIndex("stock");
+
+            if (idxNombre != -1 && idxBarcode != -1 && idxId != -1 && idxPrecio != -1) {
+                producto = new Producto(cursor.getString(idxNombre),
+                        cursor.getString(idxBarcode),
+                        cursor.getInt(idxId),
+                        cursor.getDouble(idxPrecio));
+                if (idxReorden != -1) producto.setReorden(cursor.getDouble(idxReorden));
+                if (idxStock != -1) producto.setStock(cursor.getDouble(idxStock));
+            }
         }
         cursor.close();
         db.close();
@@ -330,13 +373,22 @@ return lote;
         ArrayList<Cliente> clientes = new ArrayList<>();
 
         while (cursor.moveToNext()) {
-            Cliente aux = new Cliente(cursor.getInt(cursor.getColumnIndex("idcliente")),
-                    cursor.getString(cursor.getColumnIndex("nombre")),
-                    cursor.getString(cursor.getColumnIndex("apellidos")));
-            aux.setTelefono(cursor.getString(cursor.getColumnIndex("telefono")));
-            aux.setCorreo(cursor.getString(cursor.getColumnIndex("correo")));
-            aux.setDireccion(cursor.getString(cursor.getColumnIndex("direccion")));
-            clientes.add(aux);
+            int idxId = cursor.getColumnIndex("idcliente");
+            int idxNombre = cursor.getColumnIndex("nombre");
+            int idxApellidos = cursor.getColumnIndex("apellidos");
+            int idxTel = cursor.getColumnIndex("telefono");
+            int idxCorreo = cursor.getColumnIndex("correo");
+            int idxDir = cursor.getColumnIndex("direccion");
+
+            if (idxId != -1 && idxNombre != -1 && idxApellidos != -1) {
+                Cliente aux = new Cliente(cursor.getInt(idxId),
+                        cursor.getString(idxNombre),
+                        cursor.getString(idxApellidos));
+                if (idxTel != -1) aux.setTelefono(cursor.getString(idxTel));
+                if (idxCorreo != -1) aux.setCorreo(cursor.getString(idxCorreo));
+                if (idxDir != -1) aux.setDireccion(cursor.getString(idxDir));
+                clientes.add(aux);
+            }
         }
         cursor.close();
         db.close();
@@ -349,16 +401,28 @@ return lote;
         Cursor cursor = db.rawQuery("select * from "+PRODUCTOS_TABLE_NAME, null);
         ArrayList<Producto> productos = new ArrayList<>();
         while (cursor.moveToNext()){
-            Producto aux = new Producto(cursor.getString(cursor.getColumnIndex("nombre")),
-                    cursor.getString(cursor.getColumnIndex("barcode")),
-                    cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getDouble(cursor.getColumnIndex("precio")));
+            int idxNombre = cursor.getColumnIndex("nombre");
+            int idxBarcode = cursor.getColumnIndex("barcode");
+            int idxId = cursor.getColumnIndex("id");
+            int idxPrecio = cursor.getColumnIndex("precio");
+            int idxReorden = cursor.getColumnIndex("punto_reorden");
+            int idxStock = cursor.getColumnIndex("stock");
+            int idxMedida = cursor.getColumnIndex("idmedida");
 
-            aux.setReorden(cursor.getDouble(cursor.getColumnIndex("punto_reorden")));
-            aux.setStock(cursor.getDouble(cursor.getColumnIndex("stock")));
-            Medida medida = selectMedida(cursor.getInt(cursor.getColumnIndex("idmedida")));
-            aux.setMedida(medida);
-            productos.add(aux);
+            if (idxNombre != -1 && idxBarcode != -1 && idxId != -1 && idxPrecio != -1) {
+                Producto aux = new Producto(cursor.getString(idxNombre),
+                        cursor.getString(idxBarcode),
+                        cursor.getInt(idxId),
+                        cursor.getDouble(idxPrecio));
+
+                if (idxReorden != -1) aux.setReorden(cursor.getDouble(idxReorden));
+                if (idxStock != -1) aux.setStock(cursor.getDouble(idxStock));
+                if (idxMedida != -1) {
+                    Medida medida = selectMedida(cursor.getInt(idxMedida));
+                    aux.setMedida(medida);
+                }
+                productos.add(aux);
+            }
         }
         cursor.close();
         db.close();
@@ -455,11 +519,19 @@ return lote;
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from " + VENTAS_TABLE_NAME, null);
         while (cursor.moveToNext()){
-            ventas.add(new Venta(cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getString(cursor.getColumnIndex("fecha")),
-                    cursor.getString(cursor.getColumnIndex("hora")),
-                    cursor.getDouble(cursor.getColumnIndex("total")),
-                    cursor.getDouble(cursor.getColumnIndex("pago"))));
+            int idxId = cursor.getColumnIndex("id");
+            int idxFecha = cursor.getColumnIndex("fecha");
+            int idxHora = cursor.getColumnIndex("hora");
+            int idxTotal = cursor.getColumnIndex("total");
+            int idxPago = cursor.getColumnIndex("pago");
+
+            if (idxId != -1 && idxFecha != -1 && idxHora != -1 && idxTotal != -1 && idxPago != -1) {
+                ventas.add(new Venta(cursor.getInt(idxId),
+                        cursor.getString(idxFecha),
+                        cursor.getString(idxHora),
+                        cursor.getDouble(idxTotal),
+                        cursor.getDouble(idxPago)));
+            }
         }
         cursor.close();
         db.close();
@@ -472,11 +544,19 @@ return lote;
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from " + VENTAS_TABLE_NAME + " where estatus = " + VENTA_CONTADO, null);
         while (cursor.moveToNext()){
-            ventas.add(new Venta(cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getString(cursor.getColumnIndex("fecha")),
-                    cursor.getString(cursor.getColumnIndex("hora")),
-                    cursor.getDouble(cursor.getColumnIndex("total")),
-                    cursor.getDouble(cursor.getColumnIndex("pago"))));
+            int idxId = cursor.getColumnIndex("id");
+            int idxFecha = cursor.getColumnIndex("fecha");
+            int idxHora = cursor.getColumnIndex("hora");
+            int idxTotal = cursor.getColumnIndex("total");
+            int idxPago = cursor.getColumnIndex("pago");
+
+            if (idxId != -1 && idxFecha != -1 && idxHora != -1 && idxTotal != -1 && idxPago != -1) {
+                ventas.add(new Venta(cursor.getInt(idxId),
+                        cursor.getString(idxFecha),
+                        cursor.getString(idxHora),
+                        cursor.getDouble(idxTotal),
+                        cursor.getDouble(idxPago)));
+            }
         }
         cursor.close();
         db.close();
@@ -491,14 +571,22 @@ return lote;
         Cursor cursor = db.rawQuery("select pv.producto, pv.precioventa, pv.cantidad, v.fecha, v.hora, v.total, v.pago from "+
                 PRODUCTOS_VENTAS_TABLE_NAME+" pv join "+VENTAS_TABLE_NAME+" v on pv.idventa=v.id where v.id="+id, null);
         while (cursor.moveToNext()){
+            int idxProd = cursor.getColumnIndex("producto");
+            int idxPrecioV = cursor.getColumnIndex("precioventa");
+            int idxCant = cursor.getColumnIndex("cantidad");
+            int idxFecha = cursor.getColumnIndex("fecha");
+            int idxHora = cursor.getColumnIndex("hora");
+            int idxTotal = cursor.getColumnIndex("total");
+            int idxPago = cursor.getColumnIndex("pago");
+
             aux = new HashMap<>();
-            aux.put("nombre", cursor.getString(cursor.getColumnIndex("producto")));
-            aux.put("precio", cursor.getDouble(cursor.getColumnIndex("precioventa")));
-            aux.put("cantidad", cursor.getDouble(cursor.getColumnIndex("cantidad")));
-            aux.put("fecha", cursor.getString(cursor.getColumnIndex("fecha")));
-            aux.put("hora", cursor.getString(cursor.getColumnIndex("hora")));
-            aux.put("total", cursor.getDouble(cursor.getColumnIndex("total")));
-            aux.put("pago", cursor.getDouble(cursor.getColumnIndex("pago")));
+            if (idxProd != -1) aux.put("nombre", cursor.getString(idxProd));
+            if (idxPrecioV != -1) aux.put("precio", cursor.getDouble(idxPrecioV));
+            if (idxCant != -1) aux.put("cantidad", cursor.getDouble(idxCant));
+            if (idxFecha != -1) aux.put("fecha", cursor.getString(idxFecha));
+            if (idxHora != -1) aux.put("hora", cursor.getString(idxHora));
+            if (idxTotal != -1) aux.put("total", cursor.getDouble(idxTotal));
+            if (idxPago != -1) aux.put("pago", cursor.getDouble(idxPago));
             detalle.add(aux);
         }
         cursor.close();
@@ -516,9 +604,15 @@ return lote;
                 +" v on pv.idventa=v.id", null);
 
         while (cursor.moveToNext()){
-            productosvendidos.add(new ProductosVendidos(cursor.getString(cursor.getColumnIndex("producto")),
-                    cursor.getInt(cursor.getColumnIndex("cantidad")),
-                    cursor.getString(cursor.getColumnIndex("fecha"))));
+            int idxProd = cursor.getColumnIndex("producto");
+            int idxCant = cursor.getColumnIndex("cantidad");
+            int idxFecha = cursor.getColumnIndex("fecha");
+
+            if (idxProd != -1 && idxCant != -1 && idxFecha != -1) {
+                productosvendidos.add(new ProductosVendidos(cursor.getString(idxProd),
+                        cursor.getInt(idxCant),
+                        cursor.getString(idxFecha)));
+            }
         }
 
         cursor.close();
@@ -562,7 +656,11 @@ return lote;
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor=db.rawQuery(sql, null);
         while(cursor.moveToNext()){
-            valor.add(cursor.getFloat(cursor.getColumnIndex("precio")) * cursor.getFloat(cursor.getColumnIndex("stock")));
+            int idxPrecio = cursor.getColumnIndex("precio");
+            int idxStock = cursor.getColumnIndex("stock");
+            if (idxPrecio != -1 && idxStock != -1) {
+                valor.add(cursor.getFloat(idxPrecio) * cursor.getFloat(idxStock));
+            }
         }
 
         for(int i = 0; i < valor.size(); i++){
@@ -581,11 +679,16 @@ return lote;
         Cursor cursor= db.rawQuery("select * from prolote where fcaducidad !=''", null);
         int res;
         while (cursor.moveToNext()){
-            res=dias_res(cursor.getString(cursor.getColumnIndex("fcaducidad")));
+            int idxCad = cursor.getColumnIndex("fcaducidad");
+            int idxIdL = cursor.getColumnIndex("id_lote");
+            int idxNom = cursor.getColumnIndex("nombre");
+            int idxNum = cursor.getColumnIndex("numero");
 
-            prol.add(new Prolote(cursor.getInt(cursor.getColumnIndex("id_lote")),cursor.getString(cursor.getColumnIndex("nombre")),
-                    cursor.getInt(cursor.getColumnIndex("numero")),res));
-
+            if (idxCad != -1 && idxIdL != -1 && idxNom != -1 && idxNum != -1) {
+                res = dias_res(cursor.getString(idxCad));
+                prol.add(new Prolote(cursor.getInt(idxIdL), cursor.getString(idxNom),
+                        cursor.getInt(idxNum), res));
+            }
         }
 
 cursor.close();
@@ -598,7 +701,10 @@ cursor.close();
         SQLiteDatabase db=getReadableDatabase();
         Cursor cursor= db.rawQuery("select julianday('" + fecha + "'" + ") - (julianday('NOW') - 1) as res", null);
         if(cursor.moveToNext()){
-            res=cursor.getInt(cursor.getColumnIndex("res"));
+            int idxRes = cursor.getColumnIndex("res");
+            if (idxRes != -1) {
+                res = cursor.getInt(idxRes);
+            }
         }
         db.close();
         cursor.close();
@@ -612,17 +718,28 @@ cursor.close();
         Cursor cursor= db.rawQuery("select * from " + VISTA_VENTAS_CLIENTES_NAME, null);
 
         while (cursor.moveToNext()) {
-            Cliente cliente = new Cliente(cursor.getInt(cursor.getColumnIndex("idcliente")),
-                    cursor.getString(cursor.getColumnIndex("nombre")),
-                    cursor.getString(cursor.getColumnIndex("apellidos")));
+            int idxIdC = cursor.getColumnIndex("idcliente");
+            int idxNom = cursor.getColumnIndex("nombre");
+            int idxApe = cursor.getColumnIndex("apellidos");
+            int idxId = cursor.getColumnIndex("id");
+            int idxFec = cursor.getColumnIndex("fecha");
+            int idxHor = cursor.getColumnIndex("hora");
+            int idxTot = cursor.getColumnIndex("total");
+            int idxPag = cursor.getColumnIndex("pago");
 
-            VentaCliente aux = new VentaCliente(cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getString(cursor.getColumnIndex("fecha")),
-                    cursor.getString(cursor.getColumnIndex("hora")),
-                    cursor.getDouble(cursor.getColumnIndex("total")),
-                    cursor.getDouble(cursor.getColumnIndex("pago")), cliente);
+            if (idxIdC != -1 && idxNom != -1 && idxApe != -1 && idxId != -1 && idxFec != -1 && idxHor != -1 && idxTot != -1 && idxPag != -1) {
+                Cliente cliente = new Cliente(cursor.getInt(idxIdC),
+                        cursor.getString(idxNom),
+                        cursor.getString(idxApe));
 
-            VC.add(aux);
+                VentaCliente aux = new VentaCliente(cursor.getInt(idxId),
+                        cursor.getString(idxFec),
+                        cursor.getString(idxHor),
+                        cursor.getDouble(idxTot),
+                        cursor.getDouble(idxPag), cliente);
+
+                VC.add(aux);
+            }
         }
         cursor.close();
         db.close();
@@ -637,13 +754,23 @@ cursor.close();
                 " AND ESTATUS = " + VENTA_CREDITO, null);
 
         while (cursor.moveToNext()) {
-            venta = new Venta(cursor.getInt(cursor.getColumnIndex("ID")),
-                    cursor.getString(cursor.getColumnIndex("FECHA")),
-                    cursor.getString(cursor.getColumnIndex("HORA")),
-                    cursor.getDouble(cursor.getColumnIndex("TOTAL")),
-                    cursor.getDouble(cursor.getColumnIndex("PAGO")));
-            venta.setPlazo(cursor.getString(cursor.getColumnIndex("PLAZO")));
-            venta.setEstatus(cursor.getInt(cursor.getColumnIndex("ESTATUS")));
+            int idxId = cursor.getColumnIndex("ID");
+            int idxFec = cursor.getColumnIndex("FECHA");
+            int idxHor = cursor.getColumnIndex("HORA");
+            int idxTot = cursor.getColumnIndex("TOTAL");
+            int idxPag = cursor.getColumnIndex("PAGO");
+            int idxPla = cursor.getColumnIndex("PLAZO");
+            int idxEst = cursor.getColumnIndex("ESTATUS");
+
+            if (idxId != -1 && idxFec != -1 && idxHor != -1 && idxTot != -1 && idxPag != -1) {
+                venta = new Venta(cursor.getInt(idxId),
+                        cursor.getString(idxFec),
+                        cursor.getString(idxHor),
+                        cursor.getDouble(idxTot),
+                        cursor.getDouble(idxPag));
+                if (idxPla != -1) venta.setPlazo(cursor.getString(idxPla));
+                if (idxEst != -1) venta.setEstatus(cursor.getInt(idxEst));
+            }
         }
 
         cursor.close();
@@ -684,12 +811,21 @@ cursor.close();
         Cursor cursor = db.rawQuery("select * from " + CLIENTES_TABLE_NAME + " where idcliente = " + id, null);
 
         while (cursor.moveToNext()) {
-            cliente = new Cliente(cursor.getInt(cursor.getColumnIndex("idcliente")),
-                    cursor.getString(cursor.getColumnIndex("nombre")),
-                    cursor.getString(cursor.getColumnIndex("apellidos")));
-            cliente.setTelefono(cursor.getString(cursor.getColumnIndex("telefono")));
-            cliente.setCorreo(cursor.getString(cursor.getColumnIndex("correo")));
-            cliente.setDireccion(cursor.getString(cursor.getColumnIndex("direccion")));
+            int idxId = cursor.getColumnIndex("idcliente");
+            int idxNom = cursor.getColumnIndex("nombre");
+            int idxApe = cursor.getColumnIndex("apellidos");
+            int idxTel = cursor.getColumnIndex("telefono");
+            int idxCor = cursor.getColumnIndex("correo");
+            int idxDir = cursor.getColumnIndex("direccion");
+
+            if (idxId != -1 && idxNom != -1 && idxApe != -1) {
+                cliente = new Cliente(cursor.getInt(idxId),
+                        cursor.getString(idxNom),
+                        cursor.getString(idxApe));
+                if (idxTel != -1) cliente.setTelefono(cursor.getString(idxTel));
+                if (idxCor != -1) cliente.setCorreo(cursor.getString(idxCor));
+                if (idxDir != -1) cliente.setDireccion(cursor.getString(idxDir));
+            }
         }
         cursor.close();
         db.close();
@@ -736,9 +872,15 @@ cursor.close();
         Cursor cursor = db.rawQuery("select * from " + MEDIDAS_TABLE_NAME + " where id = " + id, null);
 
         while (cursor.moveToNext()) {
-            medida = new Medida(cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getString(cursor.getColumnIndex("medida")),
-                    cursor.getString(cursor.getColumnIndex("alias")));
+            int idxId = cursor.getColumnIndex("id");
+            int idxMed = cursor.getColumnIndex("medida");
+            int idxAli = cursor.getColumnIndex("alias");
+
+            if (idxId != -1 && idxMed != -1 && idxAli != -1) {
+                medida = new Medida(cursor.getInt(idxId),
+                        cursor.getString(idxMed),
+                        cursor.getString(idxAli));
+            }
         }
         db.close();
         cursor.close();
@@ -751,10 +893,16 @@ cursor.close();
         Cursor cursor = db.rawQuery("select * from " + MEDIDAS_TABLE_NAME + " order by medida", null);
 
         while (cursor.moveToNext()){
-            Medida medida = new Medida(cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getString(cursor.getColumnIndex("medida")),
-                    cursor.getString(cursor.getColumnIndex("alias")));
-            medidas.add(medida);
+            int idxId = cursor.getColumnIndex("id");
+            int idxMed = cursor.getColumnIndex("medida");
+            int idxAli = cursor.getColumnIndex("alias");
+
+            if (idxId != -1 && idxMed != -1 && idxAli != -1) {
+                Medida medida = new Medida(cursor.getInt(idxId),
+                        cursor.getString(idxMed),
+                        cursor.getString(idxAli));
+                medidas.add(medida);
+            }
         }
         cursor.close();
         db.close();
@@ -771,12 +919,17 @@ cursor.close();
                 + " v on pv.idventa = v.id where v.id = " + idventa, null);
 
         while (cursor.moveToNext()){
+            int idxPro = cursor.getColumnIndex("producto");
+            int idxCan = cursor.getColumnIndex("cantidad");
+            int idxFec = cursor.getColumnIndex("fecha");
+            int idxPre = cursor.getColumnIndex("precioventa");
 
-            productosvendidos.add(new ProductosVendidos(cursor.getString(cursor.getColumnIndex("producto")),
-                    cursor.getInt(cursor.getColumnIndex("cantidad")),
-                    cursor.getString(cursor.getColumnIndex("fecha")),
-                    cursor.getDouble(cursor.getColumnIndex("precioventa"))));
-
+            if (idxPro != -1 && idxCan != -1 && idxFec != -1 && idxPre != -1) {
+                productosvendidos.add(new ProductosVendidos(cursor.getString(idxPro),
+                        cursor.getInt(idxCan),
+                        cursor.getString(idxFec),
+                        cursor.getDouble(idxPre)));
+            }
         }
         cursor.close();
         db.close();
