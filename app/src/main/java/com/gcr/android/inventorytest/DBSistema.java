@@ -208,7 +208,10 @@ public class DBSistema extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select stock from " + PRODUCTOS_TABLE_NAME + " where id = " + id, null);
 
         if(cursor.moveToNext()){
-            stock = cursor.getDouble(cursor.getColumnIndex("stock"));
+            int idxStock = cursor.getColumnIndex("stock");
+            if (idxStock != -1) {
+                stock = cursor.getDouble(idxStock);
+            }
         }
         db.close();
         cursor.close();
