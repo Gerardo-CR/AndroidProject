@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
 import android.widget.Button;
 
 public class Registro extends AppCompatActivity {
@@ -15,20 +14,12 @@ public class Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-
-
-        aceptar= findViewById(R.id.registrar_button);
+        aceptar = findViewById(R.id.registrar_button);
         aceptar.setOnClickListener(v -> {
-            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                    .putBoolean("isFirstRun", false).commit();
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isFirstRun", false).commit();
             startActivity(new Intent(Registro.this, Autenticar.class));
-Registro.this.finish();
-
-
-
+            Registro.this.finish();
         });
-
-
     }
 
 }
