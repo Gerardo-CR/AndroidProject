@@ -18,8 +18,7 @@ import android.view.MenuItem;
 
 import com.gcr.android.inventorytest.Servicios.Recibir_Fecha_Caducidad;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     int intervalo=(1000*60)*10;
 
 
@@ -63,22 +62,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == event.KEYCODE_BACK){
+        if(keyCode == KeyEvent.KEYCODE_BACK){
 
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.exit)
-                    .setPositiveButton(R.string.close_positive, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            MainActivity.this.finish();
-                        }
-                    })
-                    .setNegativeButton(R.string.close_negative, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    })
+                    .setPositiveButton(R.string.close_positive, (dialog, which) -> MainActivity.this.finish())
+                    .setNegativeButton(R.string.close_negative, (dialog, which) -> dialog.cancel())
                     .show();
         }
         return super.onKeyDown(keyCode, event);

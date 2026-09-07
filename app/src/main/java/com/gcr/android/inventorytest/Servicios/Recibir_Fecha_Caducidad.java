@@ -50,8 +50,8 @@ public class Recibir_Fecha_Caducidad extends BroadcastReceiver {
 productos=new ArrayList();
         for(Prolote pr:lotescaducidad){
 
-            String nombre=String.valueOf(pr.getNombre());
-            if(pr.getDiasres()<5){
+            String nombre=String.valueOf(pr.nombre);
+            if(pr.diasres <5){
 
 if(!productos.contains(nombre)){
 

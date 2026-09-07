@@ -46,10 +46,10 @@ public class Adapter_lista_caducidad extends ArrayAdapter<Prolote> {
             holder=(ViewHolder)convertView.getTag();
         }
 
-        holder.numero.setText(String.valueOf(items.get(position).getNumero()));
-        holder.nombre.setText(String.valueOf(items.get(position).getNombre()));
-        holder.restantes.setText(String.valueOf(items.get(position).getDiasres()));
-        holder.id.setText(String.valueOf(items.get(position).getId_pro()));
+        holder.numero.setText(String.valueOf(items.get(position).numero));
+        holder.nombre.setText(String.valueOf(items.get(position).nombre));
+        holder.restantes.setText(String.valueOf(items.get(position).diasres));
+        holder.id.setText(String.valueOf(items.get(position).id_pro));
 
         return convertView;
     }

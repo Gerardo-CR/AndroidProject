@@ -13,7 +13,6 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.google.android.material.snackbar.Snackbar;
@@ -97,13 +96,13 @@ public class PuntoVentaActivity extends AppCompatActivity {
 
         listCodigos = new ArrayList<>();
         total = 0;
-        autoFocus = (CompoundButton) findViewById(R.id.compAutoFocusVenta);
-        useFlash = (CompoundButton) findViewById(R.id.compUseFlashVenta);
+        autoFocus = findViewById(R.id.compAutoFocusVenta);
+        useFlash = findViewById(R.id.compUseFlashVenta);
         autoFocus.setChecked(true);
         mediaPlayer = MediaPlayer.create(this, R.raw.fx_beep);
 
-        mPreview = (CameraSourcePreview) findViewById(R.id.cameraSourcePreviewVenta);
-        mGraphicOverlay = (GraphicOverlay<BarcodeGraphic>) findViewById(R.id.barcodeGraphicOverlayVenta);
+        mPreview = findViewById(R.id.cameraSourcePreviewVenta);
+        mGraphicOverlay = findViewById(R.id.barcodeGraphicOverlayVenta);
 
         checkCameraPermission();
 
@@ -514,10 +513,8 @@ public class PuntoVentaActivity extends AppCompatActivity {
                 .setRequestedFps(15.0f);
 
         // make sure that auto focus is an available option
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            builder = builder.setFocusMode(
-                    autoFocus ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : null);
-        }
+        builder = builder.setFocusMode(
+                autoFocus ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : null);
 
         mCameraSource = builder
                 .setFlashMode(useFlash ? Camera.Parameters.FLASH_MODE_TORCH : null)
@@ -589,6 +586,7 @@ public class PuntoVentaActivity extends AppCompatActivity {
         if (code != ConnectionResult.SUCCESS) {
             Dialog dlg =
                     GoogleApiAvailability.getInstance().getErrorDialog(this, code, RC_HANDLE_GMS);
+            assert dlg != null;
             dlg.show();
         }
 
@@ -674,27 +672,19 @@ public class PuntoVentaActivity extends AppCompatActivity {
                     .setView(layout)
                     .setTitle("Agregar producto")
                     .setCancelable(false)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
+                    .setPositiveButton(R.string.ok, (dialogInterface, i) -> {
 
-                            String codigo = editCod.getText().toString().trim();
-                            String can = editCan.getText().toString();
+                        String codigo = editCod.getText().toString().trim();
+                        String can = editCan.getText().toString();
 
-                            if (!codigo.equals("") && !can.equals("")) {
-                                double cantidad = FunGen.ConvertDoubleStr(can);
-                                actualizarLista(codigo, true, cantidad);
-                            } else {
-                                Toast.makeText(PuntoVentaActivity.this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
-                            }
+                        if (!codigo.isEmpty() && !can.isEmpty()) {
+                            double cantidad = FunGen.ConvertDoubleStr(can);
+                            actualizarLista(codigo, true, cantidad);
+                        } else {
+                            Toast.makeText(PuntoVentaActivity.this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
                         }
                     })
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    })
+                    .setNegativeButton(android.R.string.no, (dialogInterface, i) -> dialogInterface.dismiss())
                     .show();
             return true;
         } else {
@@ -702,50 +692,15 @@ public class PuntoVentaActivity extends AppCompatActivity {
         }
     }
 
-    public void showDialogUpdate(int id, String nombre, String barcode, double precio){
-        LayoutInflater inflater = LayoutInflater.from(PuntoVentaActivity.this);
-        View layout = inflater.inflate(R.layout.dialog_add_producto, null);
-        final EditText editCod = (EditText) layout.findViewById(R.id.dialogTextCodigo);
-        final EditText editCan = (EditText) layout.findViewById(R.id.dialogTextCantidad);
-
-        new AlertDialog.Builder(PuntoVentaActivity.this)
-                .setView(layout)
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        double cantidadDecimal = FunGen.ConvertDoubleStr(editCan.getText().toString());
-                        actualizarLista(editCod.getText().toString(), true, cantidadDecimal);
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                })
-                .show();
-    }
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-        if(keyCode == event.KEYCODE_BACK){
+        if(keyCode == KeyEvent.KEYCODE_BACK){
             new AlertDialog.Builder(PuntoVentaActivity.this)
             .setTitle("¿Desea salir?")
-            .setPositiveButton(R.string.close_positive, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            PuntoVentaActivity.this.finish();
-                        }
-                    })
+            .setPositiveButton(R.string.close_positive, (dialog, which) -> PuntoVentaActivity.this.finish())
 
-                    .setNegativeButton(R.string.close_negative, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    })
-
+                    .setNegativeButton(R.string.close_negative, (dialog, which) -> dialog.cancel())
                     .show();
         }
         return super.onKeyDown(keyCode, event);

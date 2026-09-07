@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -44,30 +46,7 @@ public class SendEmail extends AsyncTask<Void, Void, Void> {
         final String mailfrom = preferences.getString("mail_from","");
         final String mailpassword = preferences.getString("password_from","");
         //Creating properties
-        Properties props = new Properties();
-
-        //Configuring properties for gmail
-        //If you are not using gmail you may need to change the values
-        if(mailfrom.contains("gmail")){
-            props.put("mail.smtp.host", "smtp.gmail.com");
-            props.put("mail.smtp.socketFactory.port", "465");
-            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-            props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.port", "465");
-        }else {
-            props.put("mail.smtp.host", "cloud.googiehost.com");
-            props.put("mail.smtp.socketFactory.port", "465");
-            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-            props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.port", "465");
-
-            /*
-            props.put("mail.imap.host", "cloud.googiehost.com");
-            props.put("mail.imap.port", "993");
-
-            props.put("mail.pop3.host", "cloud.googiehost.com");
-            props.put("mail.pop3.port", "995");*/
-        }
+        Properties props = getProperties(mailfrom);
 
         //Creating a new session
         session = Session.getDefaultInstance(props,
@@ -100,6 +79,35 @@ public class SendEmail extends AsyncTask<Void, Void, Void> {
             Log.d("Email",e.getMessage());
         }
         return null;
+    }
+
+    @NonNull
+    private static Properties getProperties(String mailfrom) {
+        Properties props = new Properties();
+
+        //Configuring properties for gmail
+        //If you are not using gmail you may need to change the values
+        if(mailfrom.contains("gmail")){
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.socketFactory.port", "465");
+            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.port", "465");
+        }else {
+            props.put("mail.smtp.host", "cloud.googiehost.com");
+            props.put("mail.smtp.socketFactory.port", "465");
+            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.port", "465");
+
+            /*
+            props.put("mail.imap.host", "cloud.googiehost.com");
+            props.put("mail.imap.port", "993");
+
+            props.put("mail.pop3.host", "cloud.googiehost.com");
+            props.put("mail.pop3.port", "995");*/
+        }
+        return props;
     }
 
     @Override
