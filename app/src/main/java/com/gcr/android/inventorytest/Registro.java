@@ -17,18 +17,15 @@ public class Registro extends AppCompatActivity {
 
 
 
-        aceptar=(Button)findViewById(R.id.registrar_button);
-        aceptar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                        .putBoolean("isFirstRun", false).commit();
-                startActivity(new Intent(Registro.this, Autenticar.class));
+        aceptar= findViewById(R.id.registrar_button);
+        aceptar.setOnClickListener(v -> {
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                    .putBoolean("isFirstRun", false).commit();
+            startActivity(new Intent(Registro.this, Autenticar.class));
 Registro.this.finish();
 
 
 
-            }
         });
 
 
